@@ -2,25 +2,37 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
+
 .para,
 .small-para {
   color: hsl(0, 0%, 0%);
   font-weight: 800;
-}
-
-.small-para {
-  font-size: 14px;
-  font-weight: 800;
+  /* This will add color and weight to both class 'para' and 'small-para'*/
 }
 
 .para {
   font-size: 22px;
+  /* This will add 'font-size' to the class 'para' and any other element that make reference to 'para', in this case the grouping of 'para'+'small-para'*/
 }
 
-.confirm {
+.small-para {
+  font-size: 14px;
+  /*font-weight: 800; This would be omitted since the grouping will give him the weight*/
+  /* This will override the 'font-size' that was inherited from the class 'para' with the targeting of 'small-para' of the grouping 'para'+'small-para', targeting beat single and inheritance.*/
+}
+
+
+
+
+
+
+.confirm.button {
   background: green;
   color: white;
   font-weight: bold;
+  /*Chained the confirm to the button, since the button give the same properties to confirm and cancel, but needed the extras from confirm as to be different*/
 } 
 
 .button {
@@ -29,14 +41,18 @@ body {
   font-size: 20px;
 }
 
-.child {
-  color: rgb(0, 0, 0);
-  font-weight: 800;
-  font-size: 14px;
-}
+/*In this case nor the ID nor the cancel class was needed as cancel use the default button class properties, only if we need something different for cancel*/
+
 
 div.text {
   color: rgb(0, 0, 0);
   font-size: 22px;
   font-weight: 100;
+}
+
+div > .child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+  /*since the html cannot be edited, to differentiate and let it win by been declared after, we can add a chain or descendant combinator, since both will have this way a two and two (type selector and class)*/
 }
